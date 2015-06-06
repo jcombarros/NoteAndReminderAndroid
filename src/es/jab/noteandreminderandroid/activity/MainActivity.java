@@ -1,5 +1,9 @@
-package es.jab.noteandreminderandroid;
+package es.jab.noteandreminderandroid.activity;
 
+import es.jab.noteandreminderandroid.R;
+import es.jab.noteandreminderandroid.R.id;
+import es.jab.noteandreminderandroid.R.layout;
+import es.jab.noteandreminderandroid.R.menu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
