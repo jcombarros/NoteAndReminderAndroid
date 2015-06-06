@@ -20,5 +20,7 @@
     <string name="LoginButtonLoginString">Login</string>
     <string name="NotesButtonHomeString">My notes</string>
     <string name="RemindersButtonHomeString">My reminders</string>
+    <string name="title_activity_notes">NotesActivity</string>
+    <string name="TitleNotesString">My notes</string>
 
 </resources>

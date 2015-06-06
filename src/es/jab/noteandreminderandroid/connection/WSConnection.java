@@ -46,12 +46,13 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 		String route = params[0];
 		String method = params[1];
 		String data = params[2];
+		String queryString = params[3];
 
 		String dataResponse = "";
 		
 		AndroidHttpClient httpClient  = AndroidHttpClient.newInstance("AndroidHttpClient");
 		try {
-			HttpUriRequest httpUriRequest = processMethod(route, method, data);
+			HttpUriRequest httpUriRequest = processMethod(route, method, data, queryString);
 		
 			HttpResponse response = httpClient.execute(httpUriRequest);
 			dataResponse = EntityUtils.toString(response.getEntity());
@@ -72,6 +73,6 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 		activity.closeConnection(error, json);
 	}
 	
-	protected abstract HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException;
+	protected abstract HttpUriRequest processMethod(String route, String method, String data, String queryString) throws UnsupportedEncodingException;
 
 }

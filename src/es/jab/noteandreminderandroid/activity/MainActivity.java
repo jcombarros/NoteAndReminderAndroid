@@ -25,16 +25,30 @@ public class MainActivity extends Activity {
         Button loginButton = (Button) findViewById(R.id.LoginButtonHome);
         loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		click(v);
+        		clickLogin(v);
+        	}
+        });
+        
+        Button notesButton = (Button) findViewById(R.id.NotesButtonHome);
+        notesButton.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v){
+        		clickNotes(v);
         	}
         });
     }
 
 
-	private void click(View v) {
+	private void clickLogin(View v) {
 		Intent intent = new Intent(v.getContext(), LoginActivity.class);
     	intent.putExtra("message", "Login request");
     	startActivityForResult(intent, LoginActivity.LOGIN_ACTIVITY);
+		
+	}
+	
+	private void clickNotes(View v) {
+		Intent intent = new Intent(v.getContext(), NotesActivity.class);
+    	intent.putExtra("message", "Notes request");
+    	startActivityForResult(intent, NotesActivity.NOTES_ACTIVITY);
 		
 	}
 	

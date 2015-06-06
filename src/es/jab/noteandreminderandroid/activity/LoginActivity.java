@@ -58,7 +58,7 @@ public class LoginActivity extends GenericConnectionActivity{
 	}
 	
 	private void click(View v) {
-		openConnection(WSConnection.AUTH_ROUTE, LoginActivity.METHOD);
+		openConnection(WSConnection.AUTH_ROUTE, LoginActivity.METHOD, null);
 		
 		
 	}
@@ -84,7 +84,7 @@ public class LoginActivity extends GenericConnectionActivity{
 	
 
 	@Override
-	public void openConnection(String route, String method) {
+	public void openConnection(String route, String method, String queryString) {
 		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
 		inputPassword = (EditText) findViewById(R.id.PasswordInputLogin);
 		String inputEmailString = inputEmail.getText().toString();
@@ -98,7 +98,7 @@ public class LoginActivity extends GenericConnectionActivity{
 			token.setEmail(inputEmailString);
 			token.setPassword(inputPasswordString);
 			String gsonToken = gson.toJson(token);
-			new WSConnectionPost(this).execute(route, method, gsonToken);
+			new WSConnectionPost(this).execute(route, method, gsonToken, queryString);
 		}
 		
 	}
@@ -126,7 +126,7 @@ public class LoginActivity extends GenericConnectionActivity{
 		    	super.onBackPressed();
 			}
 			else{
-				Toast.makeText(this, returnToken.getMessage(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Incorrect email/password", Toast.LENGTH_SHORT).show();
 			}
 	
 		}

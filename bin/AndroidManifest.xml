@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -26,8 +26,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="es.jab.noteandreminderandroid.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="es.jab.noteandreminderandroid.activity.NotesActivity"
+            android:label="@string/title_activity_notes" >
         </activity>
     </application>
 
