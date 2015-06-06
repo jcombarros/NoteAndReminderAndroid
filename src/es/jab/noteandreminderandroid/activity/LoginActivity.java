@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class LoginActivity extends Activity {
+	
+	public static final int LOGIN_ACTIVITY = 002;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

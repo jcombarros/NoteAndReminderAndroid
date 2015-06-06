@@ -12,6 +12,8 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
+	
+	public static final int MAIN_ACTIVITY = 001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class MainActivity extends Activity {
 	private void click(View v) {
 		Intent intent = new Intent(v.getContext(), LoginActivity.class);
     	intent.putExtra("message", "From MainActivity");
-    	startActivityForResult(intent, 0);
+    	startActivityForResult(intent, LoginActivity.LOGIN_ACTIVITY);
 		
 	}
 
