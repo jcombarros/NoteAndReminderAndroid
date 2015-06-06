@@ -12,7 +12,7 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public abstract class DBConnection extends AsyncTask<String, Void, String>{
+public abstract class WSConnection extends AsyncTask<String, Void, String>{
 	
 	public static final String URL = "http://10.0.2.2:8080/NoteAndReminderApi/";
 	public static final String AUTH_ROUTE = "auth/";
@@ -23,7 +23,7 @@ public abstract class DBConnection extends AsyncTask<String, Void, String>{
 	
 	private boolean error;
 	
-	public DBConnection(GenericConnectionActivity activity) {
+	public WSConnection(GenericConnectionActivity activity) {
         this.activity = activity;
     }
 	
