@@ -2,6 +2,7 @@ package es.jab.noteandreminderandroid.connection;
 
 import java.io.UnsupportedEncodingException;
 
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
@@ -18,11 +19,10 @@ public class WSConnectionGet extends WSConnection{
 
 	@Override
 	protected HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException {
-		HttpPost httpPost = new HttpPost(WSConnection.URL + route + method);
-		StringEntity entity = new StringEntity(data, HTTP.UTF_8);
-		httpPost.setEntity(entity);
+		HttpGet httpGet = new HttpGet(WSConnection.URL + route + method);
+		//httpGet.addHeader("Authorization", value);
 		
-		return httpPost;
+		return httpGet;
 	}
 
 }

@@ -19,10 +19,12 @@ public class WSConnectionPost extends WSConnection{
 
 	@Override
 	protected HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException {
-		HttpGet httpGet = new HttpGet(WSConnection.URL + route + method);
-		//httpGet.addHeader("Authorization", value);
+		HttpPost httpPost = new HttpPost(WSConnection.URL + route + method);
+		//httpPost.addHeader("Authorization", value);
+		StringEntity entity = new StringEntity(data, HTTP.UTF_8);
+		httpPost.setEntity(entity);
 		
-		return httpGet;
+		return httpPost;
 	}
 
 }
