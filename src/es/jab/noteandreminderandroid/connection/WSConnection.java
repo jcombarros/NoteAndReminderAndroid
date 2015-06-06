@@ -69,7 +69,7 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 	@Override
 	protected void onPostExecute(String json) {
 		pDialog.dismiss();
-		activity.close(error, json);
+		activity.closeConnection(error, json);
 	}
 	
 	protected abstract HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException;

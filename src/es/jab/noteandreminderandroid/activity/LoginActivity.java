@@ -58,22 +58,8 @@ public class LoginActivity extends GenericConnectionActivity{
 	}
 	
 	private void click(View v) {
-
-		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
-		inputPassword = (EditText) findViewById(R.id.PasswordInputLogin);
-		String inputEmailString = inputEmail.getText().toString();
-		String inputPasswordString = inputPassword.getText().toString();
-		if(TextUtils.isNullOrEmpty(inputEmailString) 
-				|| TextUtils.isNullOrEmpty(inputPasswordString)){
-			Toast.makeText(this, "You must set an email and a password", Toast.LENGTH_SHORT).show();
-		}
-		else{
-			Token token = new Token();
-			token.setEmail(inputEmailString);
-			token.setPassword(inputPasswordString);
-			String gsonToken = gson.toJson(token);
-			new WSConnectionPost(this).execute(WSConnection.AUTH_ROUTE, LoginActivity.METHOD, gsonToken);
-		}
+		openConnection(WSConnection.AUTH_ROUTE, LoginActivity.METHOD);
+		
 		
 	}
 
@@ -95,9 +81,30 @@ public class LoginActivity extends GenericConnectionActivity{
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 
 	@Override
-	public void close(boolean error, String json) {
+	public void openConnection(String route, String method) {
+		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
+		inputPassword = (EditText) findViewById(R.id.PasswordInputLogin);
+		String inputEmailString = inputEmail.getText().toString();
+		String inputPasswordString = inputPassword.getText().toString();
+		if(TextUtils.isNullOrEmpty(inputEmailString) 
+				|| TextUtils.isNullOrEmpty(inputPasswordString)){
+			Toast.makeText(this, "You must set an email and a password", Toast.LENGTH_SHORT).show();
+		}
+		else{
+			Token token = new Token();
+			token.setEmail(inputEmailString);
+			token.setPassword(inputPasswordString);
+			String gsonToken = gson.toJson(token);
+			new WSConnectionPost(this).execute(route, method, gsonToken);
+		}
+		
+	}
+
+	@Override
+	public void closeConnection(boolean error, String json) {
 		Token returnToken = null;
 		if(!error){
 			try {		
@@ -128,4 +135,5 @@ public class LoginActivity extends GenericConnectionActivity{
 		}
 		
 	}
+
 }
