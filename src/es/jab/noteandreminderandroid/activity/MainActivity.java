@@ -20,8 +20,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        Button boton = (Button) findViewById(R.id.LoginButtonHome);
-		boton.setOnClickListener(new OnClickListener(){
+        Button loginButton = (Button) findViewById(R.id.LoginButtonHome);
+        loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		click(v);
         	}
@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 
 	private void click(View v) {
 		Intent intent = new Intent(v.getContext(), LoginActivity.class);
-    	intent.putExtra("message", "From MainActivity");
+    	intent.putExtra("message", "Login request");
     	startActivityForResult(intent, LoginActivity.LOGIN_ACTIVITY);
 		
 	}
