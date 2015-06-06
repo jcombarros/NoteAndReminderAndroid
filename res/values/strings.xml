@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">NoteAndReminderAndroid</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">NoteAndReminder</string>
     <string name="action_settings">Settings</string>
+    <string name="TitleHomeString"><b>NoteAndReminder</b></string>
+    <string name="Header1HomeString">Create Notes and Reminders</string>
+    <string name="WelcomeHomeString">Welcome!</string>
+    <string name="Description1HomeString">It is really easy. Don\'t you trust on me? try it.</string>
+    <string name="Header2HomeString">We remind your Reminders</string>
+    <string name="Description2HomeString">Are you these kind of people used to forget everything? Don\'t thank us. We do it for you.</string>
+    <string name="Header3HomeString">Stop worrying!</string>
+    <string name="Description3HomeString">We know you are a disaster. Don\'t worry! we organize everything for you.</string>
+    <string name="LoginButtonHomeString">Login</string>
 
 </resources>
