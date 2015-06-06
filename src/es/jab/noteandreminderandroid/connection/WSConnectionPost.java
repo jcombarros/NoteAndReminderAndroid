@@ -14,13 +14,12 @@ public class WSConnectionPost extends WSConnection{
 
 	public WSConnectionPost(GenericConnectionActivity activity) {
 		super(activity);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException {
 		HttpPost httpPost = new HttpPost(WSConnection.URL + route + method);
-		//httpPost.addHeader("Authorization", value);
+		httpPost.addHeader("Authorization", accessToken);
 		StringEntity entity = new StringEntity(data, HTTP.UTF_8);
 		httpPost.setEntity(entity);
 		

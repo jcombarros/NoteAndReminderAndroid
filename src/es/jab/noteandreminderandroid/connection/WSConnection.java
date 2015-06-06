@@ -6,6 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.util.EntityUtils;
 
+import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.GenericConnectionActivity;
 import android.app.ProgressDialog;
 import android.net.http.AndroidHttpClient;
@@ -20,11 +21,13 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 
 	protected ProgressDialog pDialog;
 	protected GenericConnectionActivity activity;
+	protected String accessToken;
 	
 	private boolean error;
 	
 	public WSConnection(GenericConnectionActivity activity) {
         this.activity = activity;
+        accessToken = ((NoteAndReminderApplication) activity.getApplication()).getAccessToken();
     }
 	
 	@Override

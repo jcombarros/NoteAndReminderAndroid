@@ -14,13 +14,12 @@ public class WSConnectionGet extends WSConnection{
 
 	public WSConnectionGet(GenericConnectionActivity activity) {
 		super(activity);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected HttpUriRequest processMethod(String route, String method, String data) throws UnsupportedEncodingException {
 		HttpGet httpGet = new HttpGet(WSConnection.URL + route + method);
-		//httpGet.addHeader("Authorization", value);
+		httpGet.addHeader("Authorization", accessToken);
 		
 		return httpGet;
 	}
