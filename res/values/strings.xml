@@ -12,5 +12,11 @@
     <string name="Header3HomeString">Stop worrying!</string>
     <string name="Description3HomeString">We know you are a disaster. Don\'t worry! we organize everything for you.</string>
     <string name="LoginButtonHomeString">Login</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="TitleLoginString">Login</string>
+    <string name="EmailLabelLoginString">Email:</string>
+    <string name="PasswordLabelLoginString">Password:</string>
+    <string name="LoginButtonLoginString">Login</string>
 
 </resources>

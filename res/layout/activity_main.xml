@@ -12,7 +12,7 @@
     tools:context="es.jab.noteandreminderandroid.activity.MainActivity" >
 
     <LinearLayout
-        android:id="@+id/TitleLayout"
+        android:id="@+id/TitleLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grey"
@@ -21,7 +21,7 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:id="@+id/NoteAndReminderHome"
+            android:id="@+id/TitleHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -35,7 +35,7 @@
             android:background="@android:color/black" />
 
         <TextView
-            android:id="@+id/WelcomeHome"
+            android:id="@+id/SubtitleHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/BodyLayout"
+        android:id="@+id/BodyLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -93,7 +93,7 @@
                 android:text="@string/Description3HomeString" />
 
             <LinearLayout
-                android:id="@+id/LoginLayout"
+                android:id="@+id/LoginButtonLayoutHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
