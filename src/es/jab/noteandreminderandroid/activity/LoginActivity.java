@@ -98,9 +98,16 @@ public class LoginActivity extends GenericConnectionActivity{
 
 	@Override
 	public void close(boolean error, String json) {
+		Token returnToken = null;
 		if(!error){
 			try {		
-				Token returnToken = gson.fromJson(json, Token.class);
+				returnToken = gson.fromJson(json, Token.class);
+			} catch (JsonSyntaxException e) {
+				Log.e("Json syntax error: ", e.toString());
+				error = true;
+			}
+			
+			if(returnToken != null && returnToken.getAuth()){
 				((NoteAndReminderApplication) this.getApplication()).setToken(returnToken);
 				
 				Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
@@ -110,10 +117,11 @@ public class LoginActivity extends GenericConnectionActivity{
 		    	this.setResult(Activity.RESULT_OK, intent);
 				this.finish();
 		    	super.onBackPressed();
-			} catch (JsonSyntaxException e) {
-				Log.e("Json syntax error: ", e.toString());
-				error = true;
 			}
+			else{
+				Toast.makeText(this, returnToken.getMessage(), Toast.LENGTH_SHORT).show();
+			}
+	
 		}
 		if(error){
 			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();

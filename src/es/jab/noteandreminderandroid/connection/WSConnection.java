@@ -35,7 +35,7 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 		super.onPreExecute();
 		error = false;
 		pDialog = new ProgressDialog(activity);
-		pDialog.setMessage("En progreso...");
+		pDialog.setMessage("In process...");
 		pDialog.setIndeterminate(false);
 		pDialog.setCancelable(true);
 		pDialog.show();
