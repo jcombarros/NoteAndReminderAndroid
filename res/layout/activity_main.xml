@@ -9,6 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbars="vertical"
+    android:visibility="visible"
     tools:context="es.jab.noteandreminderandroid.activity.MainActivity" >
 
     <LinearLayout
@@ -62,7 +63,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
-            android:text="@string/Description1HomeString" /><TextView
+            android:text="@string/Description1HomeString" />
+
+        <TextView
             android:id="@+id/Header2Home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,45 +73,65 @@
             android:text="@string/Header2HomeString"
             android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/Description2Home"
+        <TextView
+            android:id="@+id/Description2Home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="@string/Description2HomeString" />
+
+        <TextView
+            android:id="@+id/Header3Home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/Header3HomeString"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Description3Home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="@string/Description3HomeString" />
+
+        <LinearLayout
+            android:id="@+id/LoginButtonLayoutHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/LoginButtonHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/Description2HomeString" />
+                android:text="@string/LoginButtonHomeString" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/Header3Home"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/LoggedButtonsLayoutHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/NotesButtonHome"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="@string/Header3HomeString"
-                android:textSize="20sp" />
+                android:layout_weight=".50"
+                android:text="@string/NotesButtonHomeString" />
 
-            <TextView
-                android:id="@+id/Description3Home"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/RemindersButtonHome"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/Description3HomeString" />
-
-            <LinearLayout
-                android:id="@+id/LoginButtonLayoutHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="20dp" >
-
-                <Button
-                    android:id="@+id/LoginButtonHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LoginButtonHomeString" />
-
-            </LinearLayout>
-
+                android:layout_weight=".50"
+                android:text="@string/RemindersButtonHomeString" />
+        </LinearLayout>
     </LinearLayout>
-
-    
 
 </LinearLayout>

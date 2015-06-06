@@ -41,19 +41,22 @@ public final class R {
         public static final int Header3Home=0x7f090015;
         public static final int LineHome=0x7f09000e;
         public static final int LinearLayout1=0x7f090000;
+        public static final int LoggedButtonsLayoutHome=0x7f090019;
         public static final int LoginButtonHome=0x7f090018;
         public static final int LoginButtonLayoutHome=0x7f090017;
         public static final int LoginButtonLayoutLogin=0x7f09000a;
         public static final int LoginButtonLogin=0x7f09000b;
+        public static final int NotesButtonHome=0x7f09001a;
         public static final int PasswordInputLogin=0x7f090009;
         public static final int PasswordLabelLogin=0x7f090008;
         public static final int PasswordLayoutLogin=0x7f090007;
+        public static final int RemindersButtonHome=0x7f09001b;
         public static final int SubtitleHome=0x7f09000f;
         public static final int TitleHome=0x7f09000d;
         public static final int TitleLayoutHome=0x7f09000c;
         public static final int TitleLayoutLogin=0x7f090001;
         public static final int TitleLogin=0x7f090002;
-        public static final int action_settings=0x7f090019;
+        public static final int action_settings=0x7f09001c;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -73,7 +76,9 @@ public final class R {
         public static final int Header3HomeString=0x7f060008;
         public static final int LoginButtonHomeString=0x7f06000a;
         public static final int LoginButtonLoginString=0x7f060010;
+        public static final int NotesButtonHomeString=0x7f060011;
         public static final int PasswordLabelLoginString=0x7f06000f;
+        public static final int RemindersButtonHomeString=0x7f060012;
         public static final int TitleHomeString=0x7f060002;
         public static final int TitleLoginString=0x7f06000d;
         public static final int WelcomeHomeString=0x7f060004;

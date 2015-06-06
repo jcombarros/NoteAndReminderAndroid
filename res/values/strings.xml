@@ -18,5 +18,7 @@
     <string name="EmailLabelLoginString">Email:</string>
     <string name="PasswordLabelLoginString">Password:</string>
     <string name="LoginButtonLoginString">Login</string>
+    <string name="NotesButtonHomeString">My notes</string>
+    <string name="RemindersButtonHomeString">My reminders</string>
 
 </resources>
