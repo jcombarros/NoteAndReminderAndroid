@@ -51,7 +51,7 @@ public class NoteAdapter extends BaseAdapter{
             rowView = inflater.inflate(R.layout.activity_notes_note, parent, false);
         }
  
-        TextView textView = (TextView) rowView.findViewById(R.id.TitleViewNote);
+        TextView textView = (TextView) rowView.findViewById(R.id.TitleNote);
         TextView subTextView = (TextView) rowView.findViewById(R.id.SubTitleNote);
  
         Note note = this.notes.get(position);

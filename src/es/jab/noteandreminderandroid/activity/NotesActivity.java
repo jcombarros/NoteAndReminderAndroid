@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
+import es.jab.noteandreminderandroid.NoteActivity;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
 import es.jab.noteandreminderandroid.adapter.NoteAdapter;
@@ -15,6 +16,7 @@ import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Token;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -86,7 +88,7 @@ public class NotesActivity extends GenericConnectionActivity {
 				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 				    @Override
 				    public void onItemClick(AdapterView adapter, View view, int position, long arg) {
-
+				    	clickNote(view, position);
 				    }
 				});
 				
@@ -103,5 +105,14 @@ public class NotesActivity extends GenericConnectionActivity {
 		if(error){
 			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
 		}
+	}
+	
+	private void clickNote(View view, int position){
+		Note note = (Note) listView.getAdapter().getItem(position);
+		
+		Intent intent = new Intent(view.getContext(), NoteActivity.class);
+    	intent.putExtra("message", "View note request");
+    	intent.putExtra("noteId", Integer.toString(note.getId()));
+    	startActivityForResult(intent, NoteActivity.NOTE_ACTIVITY);
 	}
 }

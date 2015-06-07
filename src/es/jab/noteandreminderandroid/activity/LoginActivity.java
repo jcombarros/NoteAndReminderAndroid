@@ -127,6 +127,7 @@ public class LoginActivity extends GenericConnectionActivity{
 			}
 			else{
 				Toast.makeText(this, "Incorrect email/password", Toast.LENGTH_SHORT).show();
+				inputPassword.setText("");
 			}
 	
 		}
