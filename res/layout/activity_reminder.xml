@@ -54,7 +54,8 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
-            android:text="@string/DescriptionViewReminderString" />
+            android:text="@string/DescriptionViewReminderString"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/SubDescriptionViewReminder"
