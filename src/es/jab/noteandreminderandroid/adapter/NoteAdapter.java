@@ -1,4 +1,4 @@
-package es.jab.noteandreminderandroid.activity;
+package es.jab.noteandreminderandroid.adapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

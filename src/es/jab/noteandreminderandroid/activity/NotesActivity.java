@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
+import es.jab.noteandreminderandroid.adapter.NoteAdapter;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
