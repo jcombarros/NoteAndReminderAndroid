@@ -13,8 +13,10 @@ import es.jab.noteandreminderandroid.R;
 import es.jab.noteandreminderandroid.adapter.ReminderAdapter;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
+import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Reminder;
 import es.jab.noteandreminderandroid.model.Token;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -108,6 +110,11 @@ public class RemindersActivity extends GenericConnectionActivity {
 	}
 	
 	private void clickReminder(View view, int position){
-
+		Reminder reminder = (Reminder) listView.getAdapter().getItem(position);
+		
+		Intent intent = new Intent(view.getContext(), ReminderActivity.class);
+    	intent.putExtra("message", "View reminder request");
+    	intent.putExtra("reminderId", Integer.toString(reminder.getId()));
+    	startActivityForResult(intent, ReminderActivity.REMINDER_ACTIVITY);
 	}
 }
