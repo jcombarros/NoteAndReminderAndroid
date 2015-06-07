@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
+        android:text="@string/TitleNoteString"
         android:textIsSelectable="false"
         android:textSize="20sp" />
 
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
+        android:text="@string/SubTitleNoteString"
         android:textIsSelectable="false"
         android:textSize="15sp" />
 

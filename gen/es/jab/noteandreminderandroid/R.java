@@ -100,8 +100,10 @@ public final class R {
         public static final int PasswordLabelLoginString=0x7f06000f;
         public static final int RemindersButtonHomeString=0x7f060012;
         public static final int SubHeaderViewNoteString=0x7f060018;
+        public static final int SubTitleNoteString=0x7f06001b;
         public static final int TitleHomeString=0x7f060002;
         public static final int TitleLoginString=0x7f06000d;
+        public static final int TitleNoteString=0x7f06001a;
         public static final int TitleNotesString=0x7f060014;
         public static final int TitleViewNoteString=0x7f060016;
         public static final int WelcomeHomeString=0x7f060004;
