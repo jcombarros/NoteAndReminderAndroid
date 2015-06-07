@@ -1,4 +1,4 @@
-package es.jab.noteandreminderandroid;
+package es.jab.noteandreminderandroid.activity;
 
 import java.lang.reflect.Type;
 import java.text.DateFormat;
@@ -10,8 +10,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
-import es.jab.noteandreminderandroid.activity.GenericConnectionActivity;
-import es.jab.noteandreminderandroid.activity.NotesActivity;
+import es.jab.noteandreminderandroid.NoteAndReminderApplication;
+import es.jab.noteandreminderandroid.R;
+import es.jab.noteandreminderandroid.R.id;
+import es.jab.noteandreminderandroid.R.layout;
+import es.jab.noteandreminderandroid.R.menu;
 import es.jab.noteandreminderandroid.adapter.NoteAdapter;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;

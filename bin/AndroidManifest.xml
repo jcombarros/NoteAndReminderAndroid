@@ -34,7 +34,7 @@
             android:label="@string/title_activity_notes" >
         </activity>
         <activity
-            android:name=".NoteActivity"
+            android:name="es.jab.noteandreminderandroid.activity.NoteActivity"
             android:label="@string/title_activity_note" >
         </activity>
     </application>
