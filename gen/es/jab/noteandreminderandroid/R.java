@@ -31,6 +31,7 @@ public final class R {
         public static final int BodyLayoutHome=0x7f090011;
         public static final int BodyLayoutLogin=0x7f090003;
         public static final int BodyLayoutNotes=0x7f090025;
+        public static final int BodyLayoutReminders=0x7f09002b;
         public static final int BodyViewNote=0x7f09001f;
         public static final int Description1Home=0x7f090013;
         public static final int Description2Home=0x7f090015;
@@ -64,11 +65,14 @@ public final class R {
         public static final int TitleLayoutLogin=0x7f090001;
         public static final int TitleLayoutNote=0x7f09001d;
         public static final int TitleLayoutNotes=0x7f090023;
+        public static final int TitleLayoutReminders=0x7f090029;
         public static final int TitleLogin=0x7f090002;
         public static final int TitleNote=0x7f090027;
         public static final int TitleNotes=0x7f090024;
+        public static final int TitleReminders=0x7f09002a;
         public static final int TitleViewNote=0x7f09001e;
-        public static final int action_settings=0x7f090029;
+        public static final int action_settings=0x7f09002d;
+        public static final int listView1=0x7f09002c;
         public static final int scrollView1=0x7f090010;
     }
     public static final class layout {
@@ -107,6 +111,7 @@ public final class R {
         public static final int TitleLoginString=0x7f06000d;
         public static final int TitleNoteString=0x7f06001a;
         public static final int TitleNotesString=0x7f060014;
+        public static final int TitleRemindersString=0x7f06001d;
         public static final int TitleViewNoteString=0x7f060016;
         public static final int WelcomeHomeString=0x7f060004;
         public static final int action_settings=0x7f060001;
