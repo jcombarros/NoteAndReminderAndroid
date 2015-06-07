@@ -110,16 +110,10 @@ public class LoginActivity extends GenericConnectionActivity{
 				error = true;
 			}
 			
-			if(returnToken != null && returnToken.getAuth()){
-				((NoteAndReminderApplication) this.getApplication()).setToken(returnToken);
-				
+			if(returnToken != null && returnToken.getAuth()){				
 				Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 				
-				Intent intent = getIntent();
-				intent.putExtra("message", "Login response - connected");
-		    	this.setResult(Activity.RESULT_OK, intent);
-				this.finish();
-		    	super.onBackPressed();
+				connectionSuccess(returnToken);
 			}
 			else{
 				Toast.makeText(this, "Incorrect email/password", Toast.LENGTH_SHORT).show();
@@ -129,6 +123,7 @@ public class LoginActivity extends GenericConnectionActivity{
 		}
 		if(error){
 			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
+			inputPassword.setText("");
 		}
 		
 	}

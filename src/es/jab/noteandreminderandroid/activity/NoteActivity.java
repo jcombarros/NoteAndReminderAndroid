@@ -121,6 +121,7 @@ public class NoteActivity extends GenericConnectionActivity {
 		}
 		if(error){
 			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
+			connectionError();
 		}
 	}
 }
