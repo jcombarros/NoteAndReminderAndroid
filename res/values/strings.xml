@@ -25,8 +25,8 @@
     <string name="title_activity_note">NoteActivity</string>
     <string name="TitleViewNoteString">Note</string>
     <string name="DescriptionViewNoteString">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-    <string name="SubHeaderViewNoteString"><i>06/07/2015 12:56:12</i></string>
-    <string name="HeaderViewNote"><b>Lorem ipsum</b></string>
+    <string name="SubHeaderViewNoteString"><i>Creation date: 06/07/2015 12:56:12</i></string>
+    <string name="HeaderViewNoteString"><b>Lorem ipsum</b></string>
     <string name="TitleNoteString">Lorem ipsum</string>
     <string name="SubTitleNoteString">Creation date: 06/07/2015 12:56:12</string>
     <string name="title_activity_reminders">RemindersActivity</string>
@@ -34,5 +34,10 @@
     <string name="TitleReminderString">Lorem ipsum</string>
     <string name="SubTitleReminderString">Completion date: 06/07/2015 12:56:12</string>
     <string name="title_activity_reminder">ReminderActivity</string>
+    <string name="TitleViewReminderString">Reminder</string>
+    <string name="HeaderViewReminderString">Lorem ipsum</string>
+    <string name="SubHeaderViewReminderString">Creation date: 06/07/2015 12:56:12</string>
+    <string name="DescriptionViewReminderString">Is Completed? <b>True</b></string>
+    <string name="SubDescriptionViewReminderString"> Completion date: 06/07/2015 12:56:12</string>
 
 </resources>
