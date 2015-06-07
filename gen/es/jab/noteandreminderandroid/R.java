@@ -47,6 +47,7 @@ public final class R {
         public static final int LineHome=0x7f09000e;
         public static final int LinearLayout1=0x7f090000;
         public static final int ListNotes=0x7f090026;
+        public static final int ListReminders=0x7f09002c;
         public static final int LoggedButtonsLayoutHome=0x7f09001a;
         public static final int LoginButtonHome=0x7f090019;
         public static final int LoginButtonLayoutHome=0x7f090018;
@@ -74,7 +75,6 @@ public final class R {
         public static final int TitleReminders=0x7f09002a;
         public static final int TitleViewNote=0x7f09001e;
         public static final int action_settings=0x7f09002f;
-        public static final int listView1=0x7f09002c;
         public static final int scrollView1=0x7f090010;
     }
     public static final class layout {

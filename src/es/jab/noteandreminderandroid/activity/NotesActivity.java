@@ -47,7 +47,8 @@ public class NotesActivity extends GenericConnectionActivity {
 		
 		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
 		if(connectionToken != null && connectionToken.getAuth()){
-			openConnection(WSConnection.API_ROUTE, NotesActivity.METHOD, QUERY_STRING + connectionToken.getUserId());
+			openConnection(WSConnection.API_ROUTE, NotesActivity.METHOD, 
+					NotesActivity.QUERY_STRING + connectionToken.getUserId());
 		}
 	}
 
