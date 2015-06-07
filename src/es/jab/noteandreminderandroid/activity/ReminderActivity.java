@@ -111,10 +111,7 @@ public class ReminderActivity extends GenericConnectionActivity {
 					subHeaderViewReminder.setText("Created: " + df.format(reminder.getCreationDate()));
 					subHeaderViewReminder.setTypeface(null, Typeface.ITALIC);
 					
-					Date now = new Date();
-					Date completionDate = reminder.getCompletionDate();
-					boolean isCompleted = now.after(completionDate);
-					descriptionViewReminder.setText("Is Completed? " + Boolean.toString(isCompleted));
+					descriptionViewReminder.setText("Is Completed? " + Boolean.toString(reminder.isCompleted()));
 					descriptionViewReminder.setTypeface(null, Typeface.BOLD);
 					
 					subDescriptionViewReminder.setText("Completion date: " + df.format(reminder.getCompletionDate()));

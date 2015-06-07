@@ -38,6 +38,9 @@ public class Reminder extends Annotation {
 
 
 	public boolean isCompleted() {
+		Date now = new Date();
+		Date completionDate = this.getCompletionDate();
+		boolean isCompleted = now.after(completionDate);
 		return isCompleted;
 	}
 

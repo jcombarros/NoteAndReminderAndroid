@@ -57,7 +57,7 @@ private Context context;
         textView.setText(reminder.getTitle());
         
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        subTextView.setText("Completion date: " + df.format(reminder.getCompletionDate()));
+        subTextView.setText("Is Completed? " + Boolean.toString(reminder.isCompleted()));
         subTextView.setTypeface(null, Typeface.ITALIC);
  
         return rowView;
