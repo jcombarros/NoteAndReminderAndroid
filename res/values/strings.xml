@@ -33,5 +33,6 @@
     <string name="TitleRemindersString">My Reminders</string>
     <string name="TitleReminderString">Lorem ipsum</string>
     <string name="SubTitleReminderString">Completion date: 06/07/2015 12:56:12</string>
+    <string name="title_activity_reminder">ReminderActivity</string>
 
 </resources>

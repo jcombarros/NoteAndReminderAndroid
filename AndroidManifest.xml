@@ -38,8 +38,12 @@
             android:label="@string/title_activity_note" >
         </activity>
         <activity
-            android:name="es.jab.noteandreminderandroid.activity.RemindersActivity"
+            android:name=".activity.RemindersActivity"
             android:label="@string/title_activity_reminders" >
+        </activity>
+        <activity
+            android:name="es.jab.noteandreminderandroid.activity.ReminderActivity"
+            android:label="@string/title_activity_reminder" >
         </activity>
     </application>
 
