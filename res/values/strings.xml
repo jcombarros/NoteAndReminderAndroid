@@ -22,5 +22,10 @@
     <string name="RemindersButtonHomeString">My reminders</string>
     <string name="title_activity_notes">NotesActivity</string>
     <string name="TitleNotesString">My notes</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="TitleViewNoteString">Note</string>
+    <string name="DescriptionViewNoteString">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="SubHeaderViewNoteString"><i>06/07/2015 12:56:12</i></string>
+    <string name="HeaderViewNote"><b>Lorem ipsum</b></string>
 
 </resources>
