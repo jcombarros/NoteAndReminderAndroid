@@ -59,6 +59,7 @@ public final class R {
         public static final int RemindersButtonHome=0x7f09001c;
         public static final int SubHeaderViewNote=0x7f090021;
         public static final int SubTitleNote=0x7f090028;
+        public static final int SubTitleReminder=0x7f09002e;
         public static final int SubtitleHome=0x7f09000f;
         public static final int TitleHome=0x7f09000d;
         public static final int TitleLayoutHome=0x7f09000c;
@@ -69,9 +70,10 @@ public final class R {
         public static final int TitleLogin=0x7f090002;
         public static final int TitleNote=0x7f090027;
         public static final int TitleNotes=0x7f090024;
+        public static final int TitleReminder=0x7f09002d;
         public static final int TitleReminders=0x7f09002a;
         public static final int TitleViewNote=0x7f09001e;
-        public static final int action_settings=0x7f09002d;
+        public static final int action_settings=0x7f09002f;
         public static final int listView1=0x7f09002c;
         public static final int scrollView1=0x7f090010;
     }
@@ -82,6 +84,7 @@ public final class R {
         public static final int activity_notes=0x7f030003;
         public static final int activity_notes_note=0x7f030004;
         public static final int activity_reminders=0x7f030005;
+        public static final int activity_reminders_reminder=0x7f030006;
     }
     public static final class menu {
         public static final int login=0x7f080000;
@@ -107,10 +110,12 @@ public final class R {
         public static final int RemindersButtonHomeString=0x7f060012;
         public static final int SubHeaderViewNoteString=0x7f060018;
         public static final int SubTitleNoteString=0x7f06001b;
+        public static final int SubTitleReminderString=0x7f06001f;
         public static final int TitleHomeString=0x7f060002;
         public static final int TitleLoginString=0x7f06000d;
         public static final int TitleNoteString=0x7f06001a;
         public static final int TitleNotesString=0x7f060014;
+        public static final int TitleReminderString=0x7f06001e;
         public static final int TitleRemindersString=0x7f06001d;
         public static final int TitleViewNoteString=0x7f060016;
         public static final int WelcomeHomeString=0x7f060004;
