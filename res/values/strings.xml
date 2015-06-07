@@ -29,5 +29,6 @@
     <string name="HeaderViewNote"><b>Lorem ipsum</b></string>
     <string name="TitleNoteString">Lorem ipsum</string>
     <string name="SubTitleNoteString">06/07/2015 12:56:12</string>
+    <string name="title_activity_reminders">RemindersActivity</string>
 
 </resources>
