@@ -16,14 +16,21 @@ import android.widget.LinearLayout;
 public class MainActivity extends Activity {
 	
 	public static final int MAIN_ACTIVITY = 001;
+	
+	private Button loginButton;
 
+	private Button notesButton;
+	
+	private Button remindersButton;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        Button loginButton = (Button) findViewById(R.id.LoginButtonHome);
-        Button notesButton = (Button) findViewById(R.id.NotesButtonHome);
+        loginButton = (Button) findViewById(R.id.LoginButtonHome);
+        notesButton = (Button) findViewById(R.id.NotesButtonHome);
+        remindersButton = (Button) findViewById(R.id.RemindersButtonHome);
         
         loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
@@ -34,6 +41,12 @@ public class MainActivity extends Activity {
         notesButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		clickNotes(v);
+        	}
+        });
+        
+        remindersButton.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v){
+        		clickReminders(v);
         	}
         });
     }
@@ -50,6 +63,13 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(v.getContext(), NotesActivity.class);
     	intent.putExtra("message", "Notes request");
     	startActivityForResult(intent, NotesActivity.NOTES_ACTIVITY);
+		
+	}
+	
+	private void clickReminders(View v) {
+		Intent intent = new Intent(v.getContext(), RemindersActivity.class);
+    	intent.putExtra("message", "Reminders request");
+    	startActivityForResult(intent, RemindersActivity.REMINDERS_ACTIVITY);
 		
 	}
 	
