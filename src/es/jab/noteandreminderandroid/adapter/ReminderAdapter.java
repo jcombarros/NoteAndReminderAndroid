@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import es.jab.noteandreminderandroid.R;
-import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Reminder;
 
 public class ReminderAdapter extends BaseAdapter{
