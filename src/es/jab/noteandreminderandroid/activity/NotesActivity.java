@@ -43,6 +43,8 @@ public class NotesActivity extends GenericConnectionActivity {
 		
 		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create();
 		
+		listView = (ListView) findViewById(R.id.ListNotes);
+		
 		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
 		if(connectionToken != null && connectionToken.getAuth()){
 			openConnection(WSConnection.API_ROUTE, NotesActivity.METHOD, QUERY_STRING + connectionToken.getUserId());
@@ -80,10 +82,8 @@ public class NotesActivity extends GenericConnectionActivity {
 			try {
 				Type listType = new TypeToken<List<Note>>(){}.getType();
 				notes = gson.fromJson(json, listType);
-				
-				listView = (ListView) findViewById(R.id.ListNotes);
+
 				listView.setAdapter(new NoteAdapter(this, notes));
-				
 				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 				    @Override
 				    public void onItemClick(AdapterView adapter, View view, int position, long arg) {

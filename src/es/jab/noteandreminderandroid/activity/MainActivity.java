@@ -23,13 +23,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         Button loginButton = (Button) findViewById(R.id.LoginButtonHome);
+        Button notesButton = (Button) findViewById(R.id.NotesButtonHome);
+        
         loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		clickLogin(v);
         	}
         });
-        
-        Button notesButton = (Button) findViewById(R.id.NotesButtonHome);
+
         notesButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		clickNotes(v);

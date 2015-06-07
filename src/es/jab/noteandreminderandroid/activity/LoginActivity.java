@@ -28,19 +28,13 @@ public class LoginActivity extends GenericConnectionActivity{
 	
 	public static final String METHOD = "authenticate";
 	
+	private Button loginButton;
+	
 	private EditText inputEmail;
 	
 	private EditText inputPassword;
 	
 	private Gson gson;
-	
-	public EditText getInputEmail() {
-		return inputEmail;
-	}
-	
-	public EditText getInputPassword() {
-		return inputPassword;
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +43,10 @@ public class LoginActivity extends GenericConnectionActivity{
 		
 		gson = new GsonBuilder().create();
 		
-		Button loginButton = (Button) findViewById(R.id.LoginButtonLogin);
+		loginButton = (Button) findViewById(R.id.LoginButtonLogin);
+		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
+		inputPassword = (EditText) findViewById(R.id.PasswordInputLogin);
+		
 		loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		click(v);
@@ -85,8 +82,7 @@ public class LoginActivity extends GenericConnectionActivity{
 
 	@Override
 	public void openConnection(String route, String method, String queryString) {
-		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
-		inputPassword = (EditText) findViewById(R.id.PasswordInputLogin);
+
 		String inputEmailString = inputEmail.getText().toString();
 		String inputPasswordString = inputPassword.getText().toString();
 		if(TextUtils.isNullOrEmpty(inputEmailString) 

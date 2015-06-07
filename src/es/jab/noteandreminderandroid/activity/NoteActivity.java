@@ -56,6 +56,14 @@ public class NoteActivity extends GenericConnectionActivity {
 		
 		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create();
 		
+		headerViewNote = (TextView) findViewById(R.id.HeaderViewNote);
+		subHeaderViewNote = (TextView) findViewById(R.id.SubHeaderViewNote);
+		descriptionViewNote = (TextView) findViewById(R.id.DescriptionViewNote);
+		
+		headerViewNote.setText("");		
+		subHeaderViewNote.setText("");
+		descriptionViewNote.setText("");
+		
 		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
 		if(connectionToken != null && connectionToken.getAuth()){
 			openConnection(WSConnection.API_ROUTE, NotesActivity.METHOD, noteId);
@@ -95,10 +103,6 @@ public class NoteActivity extends GenericConnectionActivity {
 				
 				if(note != null){				
 					Toast.makeText(this, "Note retrieved", Toast.LENGTH_SHORT).show();
-				
-					headerViewNote = (TextView) findViewById(R.id.HeaderViewNote);
-					subHeaderViewNote = (TextView) findViewById(R.id.SubHeaderViewNote);
-					descriptionViewNote = (TextView) findViewById(R.id.DescriptionViewNote);
 					
 					headerViewNote.setText(note.getTitle());
 					headerViewNote.setTypeface(null, Typeface.BOLD);
