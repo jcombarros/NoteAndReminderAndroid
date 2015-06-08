@@ -6,9 +6,11 @@ import com.google.gson.JsonSyntaxException;
 
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
+import es.jab.noteandreminderandroid.UserActivity;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionPost;
 import es.jab.noteandreminderandroid.model.Token;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,9 +32,15 @@ public abstract class MenuActivity extends GenericConnectionActivity {
 	@Override
 	public boolean onPrepareOptionsMenu (Menu menu) {
 	    Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
+	    MenuItem profile = menu.getItem(MenuActivity.PROFILE_ITEM);
+	    MenuItem logout = menu.getItem(MenuActivity.LOGOUT_ITEM);
 		if(connectionToken == null || !connectionToken.getAuth()){
-			menu.getItem(MenuActivity.PROFILE_ITEM).setEnabled(false);
-			menu.getItem(MenuActivity.LOGOUT_ITEM).setEnabled(false);
+			profile.setEnabled(false);
+			logout.setEnabled(false);
+		}
+		else{
+			profile.setEnabled(true);
+			logout.setEnabled(true);
 		}
 	    return true;
 	}
@@ -69,11 +77,15 @@ public abstract class MenuActivity extends GenericConnectionActivity {
     }
     
     private void home(){
-    	
+    	Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+    	intent.putExtra("message", "Home request");
+    	startActivityForResult(intent, MainActivity.MAIN_ACTIVITY);
     }
     
     private void myProfile(){
-    	
+		Intent intent = new Intent(MenuActivity.this, UserActivity.class);
+    	intent.putExtra("message", "My profile request");
+    	startActivityForResult(intent, UserActivity.USER_ACTIVITY);
     }
 
 	@Override
