@@ -53,25 +53,6 @@ public class NotesActivity extends GenericConnectionActivity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.notes, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
 	public void openConnection(String route, String method, String queryString) {
 		new WSConnectionGet(this).execute(route, method, null, queryString);
 	}
@@ -104,7 +85,7 @@ public class NotesActivity extends GenericConnectionActivity {
 		}
 		if(error){
 			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
-			connectionError();
+			connectionFailed();
 		}
 	}
 	

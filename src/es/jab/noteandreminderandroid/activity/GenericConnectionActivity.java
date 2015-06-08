@@ -11,7 +11,7 @@ public abstract class GenericConnectionActivity extends Activity{
 	
 	public abstract void closeConnection(boolean error, String json);
 	
-	public void connectionSuccess(Token returnToken){
+	public void connectionEstablished(Token returnToken){
 		((NoteAndReminderApplication) this.getApplication()).setToken(returnToken);
 		Intent intent = getIntent();
 		intent.putExtra("message", "Response - connected");
@@ -20,13 +20,21 @@ public abstract class GenericConnectionActivity extends Activity{
     	super.onBackPressed();
 	}
 	
-	public void connectionError(){
+	public void connectionFailed(){
 		((NoteAndReminderApplication) this.getApplication()).setToken(null);
 		Intent intent = getIntent();
 		intent.putExtra("message", "Response - failed");
     	this.setResult(Activity.RESULT_CANCELED, intent);
 		this.finish();
     	super.onBackPressed();
+	}
+	
+	public void connectionFinished(){
+		((NoteAndReminderApplication) this.getApplication()).setToken(null);
+		Intent intent = getIntent();
+		intent.putExtra("message", "Response - disconnected");
+    	this.setResult(Activity.RESULT_CANCELED, intent);
+    	this.onResume();
 	}
 	
 }
