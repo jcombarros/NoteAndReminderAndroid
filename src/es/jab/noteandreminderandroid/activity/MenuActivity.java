@@ -46,12 +46,17 @@ public abstract class MenuActivity extends GenericConnectionActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-		case R.id.LogoutItemMenu: 
-			Log.d("Preferencias", "Logout selected");
-			logout();
+		case R.id.HomeItemMenu: 
+			Log.d("Menu", "Home selected");
+			home();
 			break;
 		case R.id.ProfileItemMenu: 
-			Log.d("Preferencias", "My profile selected");
+			Log.d("Menu", "My profile selected");
+			myProfile();
+			break;
+		case R.id.LogoutItemMenu: 
+			Log.d("Menu", "Logout selected");
+			logout();
 			break;
 		default:
 			break;
@@ -61,6 +66,14 @@ public abstract class MenuActivity extends GenericConnectionActivity {
     
     private void logout(){
     	openConnection(WSConnection.AUTH_ROUTE, MenuActivity.METHOD, null);
+    }
+    
+    private void home(){
+    	
+    }
+    
+    private void myProfile(){
+    	
     }
 
 	@Override

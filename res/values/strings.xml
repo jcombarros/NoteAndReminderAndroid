@@ -42,5 +42,11 @@
     <string name="LogoutItemMenuString">Logout</string>
     <string name="ProfileItemMenuString">My profile</string>
     <string name="HomeItemMenuString">Home</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="TitleUserString">My profile</string>
+    <string name="NameUserString">"Name: "</string>
+    <string name="SurnameUserString">"Surname: "</string>
+    <string name="EmailUserString">"Email: "</string>
+    <string name="PasswordUserString">"Password: "</string>
 
 </resources>
