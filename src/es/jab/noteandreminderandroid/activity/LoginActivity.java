@@ -1,23 +1,13 @@
 package es.jab.noteandreminderandroid.activity;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
-
 import es.jab.noteandreminderandroid.R;
-import es.jab.noteandreminderandroid.connection.WSConnection;
-import es.jab.noteandreminderandroid.connection.WSConnectionPost;
-import es.jab.noteandreminderandroid.model.Token;
-import es.jab.noteandreminderandroid.utils.TextUtils;
+import es.jab.noteandreminderandroid.presenter.LoginPresenter;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LoginActivity extends GenericConnectionActivity{
 	
@@ -25,20 +15,30 @@ public class LoginActivity extends GenericConnectionActivity{
 	
 	public static final String METHOD = "authenticate";
 	
+	private LoginPresenter loginPresenter;
+	
 	private Button loginButton;
-	
 	private EditText inputEmail;
-	
 	private EditText inputPassword;
 	
-	private Gson gson;
+	public Button getLoginButton(){
+		return loginButton;
+	}
+	
+	public EditText getInputEmail(){
+		return inputEmail;
+	}
+	
+	public EditText getInputPassword(){
+		return inputPassword;
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		gson = new GsonBuilder().create();
+		loginPresenter = new LoginPresenter(this);
 		
 		loginButton = (Button) findViewById(R.id.LoginButtonLogin);
 		inputEmail = (EditText) findViewById(R.id.EmailInputLogin);
@@ -46,63 +46,31 @@ public class LoginActivity extends GenericConnectionActivity{
 		
 		loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		click(v);
+        		loginPresenter.clickLogin(v);
         	}
         });
 	}
 	
-	private void click(View v) {
-		openConnection(WSConnection.AUTH_ROUTE, LoginActivity.METHOD, null);
-		
-		
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
 	}
 
 	@Override
 	public void openConnection(String route, String method, String queryString) {
-
-		String inputEmailString = inputEmail.getText().toString();
-		String inputPasswordString = inputPassword.getText().toString();
-		if(TextUtils.isNullOrEmpty(inputEmailString) 
-				|| TextUtils.isNullOrEmpty(inputPasswordString)){
-			Toast.makeText(this, "You must set an email and a password", Toast.LENGTH_SHORT).show();
-		}
-		else{
-			Token token = new Token();
-			token.setEmail(inputEmailString);
-			token.setPassword(inputPasswordString);
-			String gsonToken = gson.toJson(token);
-			new WSConnectionPost(this).execute(route, method, gsonToken, queryString);
-		}
-		
+		loginPresenter.openConnection(route, method, queryString);
 	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {
-		Token returnToken = null;
-		if(!error){
-			try {		
-				returnToken = gson.fromJson(json, Token.class);
-			} catch (JsonSyntaxException e) {
-				Log.e("Json syntax error: ", e.toString());
-				error = true;
-			}
-			
-			if(returnToken != null && returnToken.getAuth()){				
-				Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
-				
-				connectionEstablished(returnToken);
-			}
-			else{
-				Toast.makeText(this, "Incorrect email/password", Toast.LENGTH_SHORT).show();
-				inputPassword.setText("");
-			}
-	
-		}
-		if(error){
-			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
-			inputPassword.setText("");
-		}
-		
+		loginPresenter.closeConnection(error, json);
 	}
+	
+	
 
 }

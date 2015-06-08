@@ -1,14 +1,8 @@
 package es.jab.noteandreminderandroid.activity;
 
-import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
-import es.jab.noteandreminderandroid.model.Token;
-import android.app.Activity;
-import android.content.Intent;
+import es.jab.noteandreminderandroid.presenter.MainPresenter;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,77 +11,59 @@ import android.widget.LinearLayout;
 public class MainActivity extends MenuActivity {
 	
 	public static final int MAIN_ACTIVITY = 001;
+
+	private MainPresenter mainPresenter;
 	
 	private Button loginButton;
-
 	private Button notesButton;
-	
 	private Button remindersButton;
+	private LinearLayout loginButtonLayout;
+	private LinearLayout loggedButtonsLayout;
+	
+	public LinearLayout getLoginButtonLayout(){
+		return loginButtonLayout;
+	}
+	
+	public LinearLayout getLoggedButtonsLayout(){
+		return loggedButtonsLayout;
+	}
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        mainPresenter = new MainPresenter(this);
+        
         loginButton = (Button) findViewById(R.id.LoginButtonHome);
         notesButton = (Button) findViewById(R.id.NotesButtonHome);
         remindersButton = (Button) findViewById(R.id.RemindersButtonHome);
+        loginButtonLayout = (LinearLayout) findViewById(R.id.LoginButtonLayoutHome);
+    	loggedButtonsLayout = (LinearLayout) findViewById(R.id.LoggedButtonsLayoutHome);
+    	
         
         loginButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		clickLogin(v);
+        		mainPresenter.clickLogin(v);
         	}
         });
 
         notesButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		clickNotes(v);
+        		mainPresenter.clickNotes(v);
         	}
         });
         
         remindersButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		clickReminders(v);
+        		mainPresenter.clickReminders(v);
         	}
         });
     }
-
-
-	private void clickLogin(View v) {
-		Intent intent = new Intent(v.getContext(), LoginActivity.class);
-    	intent.putExtra("message", "Login request");
-    	startActivityForResult(intent, LoginActivity.LOGIN_ACTIVITY);
-		
-	}
-	
-	private void clickNotes(View v) {
-		Intent intent = new Intent(v.getContext(), NotesActivity.class);
-    	intent.putExtra("message", "Notes request");
-    	startActivityForResult(intent, NotesActivity.NOTES_ACTIVITY);
-		
-	}
-	
-	private void clickReminders(View v) {
-		Intent intent = new Intent(v.getContext(), RemindersActivity.class);
-    	intent.putExtra("message", "Reminders request");
-    	startActivityForResult(intent, RemindersActivity.REMINDERS_ACTIVITY);
-		
-	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
-		LinearLayout loginButtonLayout = (LinearLayout) findViewById(R.id.LoginButtonLayoutHome);
-		LinearLayout loggedButtonsLayout = (LinearLayout) findViewById(R.id.LoggedButtonsLayoutHome);
-		
-		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
-		if(connectionToken != null && connectionToken.getAuth()){
-			loginButtonLayout.setVisibility(View.GONE);
-			loggedButtonsLayout.setVisibility(View.VISIBLE);
-		}
-		else{
-			loginButtonLayout.setVisibility(View.VISIBLE);
-			loggedButtonsLayout.setVisibility(View.GONE);
-		}
+		mainPresenter.onResume();
 	}
 }

@@ -8,6 +8,7 @@ import org.apache.http.util.EntityUtils;
 
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.GenericConnectionActivity;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
@@ -70,6 +71,7 @@ public abstract class WSConnection extends AsyncTask<String, Void, String>{
 	@Override
 	protected void onPostExecute(String json) {
 		pDialog.dismiss();
+		
 		activity.closeConnection(error, json);
 	}
 	
