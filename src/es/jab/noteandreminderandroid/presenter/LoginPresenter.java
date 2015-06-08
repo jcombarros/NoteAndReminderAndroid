@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.Toast;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.LoginActivity;
+import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionPost;
 import es.jab.noteandreminderandroid.model.Token;
 import es.jab.noteandreminderandroid.utils.TextUtils;
 
-public class LoginPresenter implements GenericConnectorPresenter {
+public class LoginPresenter implements GenericConnector {
 
 	private LoginActivity loginActivity;
 	

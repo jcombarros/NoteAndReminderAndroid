@@ -17,12 +17,13 @@ import com.google.gson.JsonSyntaxException;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.NoteActivity;
 import es.jab.noteandreminderandroid.activity.NotesActivity;
+import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Token;
 
-public class NotePresenter implements GenericConnectorPresenter{
+public class NotePresenter implements GenericConnector{
 	
 	private NoteActivity noteActivity;
 	

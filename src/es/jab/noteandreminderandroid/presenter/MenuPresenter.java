@@ -13,14 +13,15 @@ import com.google.gson.JsonSyntaxException;
 
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
-import es.jab.noteandreminderandroid.UserActivity;
 import es.jab.noteandreminderandroid.activity.MainActivity;
 import es.jab.noteandreminderandroid.activity.MenuActivity;
+import es.jab.noteandreminderandroid.activity.UserActivity;
+import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionPost;
 import es.jab.noteandreminderandroid.model.Token;
 
-public class MenuPresenter implements GenericConnectorPresenter{
+public class MenuPresenter implements GenericConnector{
 	
 	private MenuActivity menuActivity;
 	

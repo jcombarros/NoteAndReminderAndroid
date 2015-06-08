@@ -18,12 +18,13 @@ import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.NoteActivity;
 import es.jab.noteandreminderandroid.activity.NotesActivity;
 import es.jab.noteandreminderandroid.adapter.NoteAdapter;
+import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Token;
 
-public class NotesPresenter implements GenericConnectorPresenter{
+public class NotesPresenter implements GenericConnector{
 	
 	private NotesActivity notesActivity;
 	

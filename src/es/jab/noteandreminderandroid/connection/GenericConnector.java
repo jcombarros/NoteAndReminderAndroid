@@ -1,8 +1,8 @@
-package es.jab.noteandreminderandroid.presenter;
+package es.jab.noteandreminderandroid.connection;
 
 import es.jab.noteandreminderandroid.model.Token;
 
-public interface GenericConnectorPresenter {
+public interface GenericConnector {
 
 	public void openConnection(String route, String method, String queryString);
 	
