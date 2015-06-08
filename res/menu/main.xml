@@ -4,7 +4,7 @@
 
     
     
-    <item android:id="@+id/ProfileItemMenu" android:title="@string/ProfileItemMenuString"></item><item android:id="@+id/LogoutItemMenu" android:title="@string/LogoutItemMenuString"></item>
-    <item android:id="@+id/HomeItemMenu" android:title="@string/HomeItemMenuString"></item>
+    <item android:id="@+id/HomeItemMenu" android:title="@string/HomeItemMenuString"></item><item android:id="@+id/ProfileItemMenu" android:title="@string/ProfileItemMenuString"></item><item android:id="@+id/LogoutItemMenu" android:title="@string/LogoutItemMenuString"></item>
+    
 
 </menu>
