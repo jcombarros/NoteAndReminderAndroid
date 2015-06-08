@@ -15,6 +15,7 @@ import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Token;
+import es.jab.noteandreminderandroid.presenter.NotesPresenter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,69 +33,43 @@ public class NotesActivity extends GenericConnectionActivity {
 	public static final String METHOD = "Note/";
 	public static final String QUERY_STRING = "userId=";
 	
-	private Gson gson;
-	
+	private NotesPresenter notesPresenter;
+		
 	private ListView listView;
+	
+	public ListView getListView(){
+		return listView;
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notes);
 		
-		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create();
-		
+		notesPresenter = new NotesPresenter(this);
+				
 		listView = (ListView) findViewById(R.id.ListNotes);
-		
-		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
-		if(connectionToken != null && connectionToken.getAuth()){
-			openConnection(WSConnection.API_ROUTE, NotesActivity.METHOD, 
-					NotesActivity.QUERY_STRING + connectionToken.getUserId());
-		}
+		notesPresenter.onCreate();
 	}
 
 	@Override
 	public void openConnection(String route, String method, String queryString) {
-		new WSConnectionGet(this).execute(route, method, null, queryString);
+		notesPresenter.openConnection(route, method, queryString);
 	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {
-		List<Note> notes = null;
-		if(!error){
-			try {
-				Type listType = new TypeToken<List<Note>>(){}.getType();
-				notes = gson.fromJson(json, listType);
-
-				listView.setAdapter(new NoteAdapter(this, notes));
-				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				    @Override
-				    public void onItemClick(AdapterView adapter, View view, int position, long arg) {
-				    	clickNote(view, position);
-				    }
-				});
-				
-			} catch (JsonSyntaxException e) {
-				Log.e("Json syntax error: ", e.toString());
-				error = true;
-			}
-			
-			if(notes != null && !notes.isEmpty()){				
-				Toast.makeText(this, "Notes retrieved", Toast.LENGTH_SHORT).show();
-			}
-
-		}
-		if(error){
-			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
-			connectionFailed();
-		}
+		notesPresenter.closeConnection(error, json);
 	}
 	
-	private void clickNote(View view, int position){
-		Note note = (Note) listView.getAdapter().getItem(position);
-		
-		Intent intent = new Intent(view.getContext(), NoteActivity.class);
-    	intent.putExtra("message", "View note request");
-    	intent.putExtra("noteId", Integer.toString(note.getId()));
-    	startActivityForResult(intent, NoteActivity.NOTE_ACTIVITY);
+	
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
 	}
 }

@@ -50,16 +50,6 @@ public class LoginActivity extends GenericConnectionActivity{
         	}
         });
 	}
-	
-	@Override
-	public void onBackPressed(){
-		super.onBackPressed();
-	}
-	
-	@Override
-	public void onResume(){
-		super.onResume();
-	}
 
 	@Override
 	public void openConnection(String route, String method, String queryString) {
@@ -71,6 +61,14 @@ public class LoginActivity extends GenericConnectionActivity{
 		loginPresenter.closeConnection(error, json);
 	}
 	
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+	}
 	
+	@Override
+	public void onResume(){
+		super.onResume();
+	}
 
 }

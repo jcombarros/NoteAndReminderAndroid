@@ -16,6 +16,7 @@ import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Reminder;
 import es.jab.noteandreminderandroid.model.Token;
+import es.jab.noteandreminderandroid.presenter.RemindersPresenter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,69 +34,44 @@ public class RemindersActivity extends GenericConnectionActivity {
 	public static final String METHOD = "Reminder/";
 	public static final String QUERY_STRING = "userId=";
 	
+	private RemindersPresenter remindersPresenter;
+	
 	private Gson gson;
 	
 	private ListView listView;
+	
+	public ListView getListView(){
+		return listView;
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_reminders);
 		
-		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create();
+		remindersPresenter = new RemindersPresenter(this);
 		
 		listView = (ListView) findViewById(R.id.ListReminders);
-		
-		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
-		if(connectionToken != null && connectionToken.getAuth()){
-			openConnection(WSConnection.API_ROUTE, RemindersActivity.METHOD, 
-					RemindersActivity.QUERY_STRING + connectionToken.getUserId());
-		}
+		remindersPresenter.onCreate();
 	}
 	
 	@Override
 	public void openConnection(String route, String method, String queryString) {
-		new WSConnectionGet(this).execute(route, method, null, queryString);
+		remindersPresenter.openConnection(route, method, queryString);
 	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {
-		List<Reminder> reminders = null;
-		if(!error){
-			try {
-				Type listType = new TypeToken<List<Reminder>>(){}.getType();
-				reminders = gson.fromJson(json, listType);
-
-				listView.setAdapter(new ReminderAdapter(this, reminders));
-				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				    @Override
-				    public void onItemClick(AdapterView adapter, View view, int position, long arg) {
-				    	clickReminder(view, position);
-				    }
-				});
-				
-			} catch (JsonSyntaxException e) {
-				Log.e("Json syntax error: ", e.toString());
-				error = true;
-			}
-			
-			if(reminders != null && !reminders.isEmpty()){				
-				Toast.makeText(this, "Notes retrieved", Toast.LENGTH_SHORT).show();
-			}
-
-		}
-		if(error){
-			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
-			connectionFailed();
-		}
+		remindersPresenter.closeConnection(error, json);
 	}
 	
-	private void clickReminder(View view, int position){
-		Reminder reminder = (Reminder) listView.getAdapter().getItem(position);
-		
-		Intent intent = new Intent(view.getContext(), ReminderActivity.class);
-    	intent.putExtra("message", "View reminder request");
-    	intent.putExtra("reminderId", Integer.toString(reminder.getId()));
-    	startActivityForResult(intent, ReminderActivity.REMINDER_ACTIVITY);
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
 	}
 }
