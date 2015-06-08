@@ -62,7 +62,7 @@ public class MainActivity extends MenuActivity {
     }
 	
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
 		mainPresenter.onResume();
 	}
