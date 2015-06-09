@@ -84,7 +84,6 @@ public class LoginPresenter implements GenericConnector {
 		
 	}
 
-	@Override
 	public void connectionEstablished(Token returnToken) {
 		((NoteAndReminderApplication) loginActivity.getApplication()).setToken(returnToken);
 		Intent intent = loginActivity.getIntent();
@@ -94,22 +93,4 @@ public class LoginPresenter implements GenericConnector {
 		loginActivity.onBackPressed();
 	}
 
-	@Override
-	public void connectionFailed() {
-		((NoteAndReminderApplication) loginActivity.getApplication()).setToken(null);
-		Intent intent = loginActivity.getIntent();
-		intent.putExtra("message", "Response - failed");
-		loginActivity.setResult(Activity.RESULT_CANCELED, intent);
-		loginActivity.finish();
-		loginActivity.onBackPressed();
-	}
-
-	@Override
-	public void connectionFinished() {
-		((NoteAndReminderApplication) loginActivity.getApplication()).setToken(null);
-		Intent intent = loginActivity.getIntent();
-		intent.putExtra("message", "Response - disconnected");
-		loginActivity.setResult(Activity.RESULT_CANCELED, intent);
-		loginActivity.onResume();
-	}
 }

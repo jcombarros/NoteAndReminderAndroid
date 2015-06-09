@@ -89,18 +89,7 @@ public class ReminderPresenter implements GenericConnector{
 			connectionFailed();
 		}
 	}
-	
-	@Override
-	public void connectionEstablished(Token returnToken) {
-		((NoteAndReminderApplication) reminderActivity.getApplication()).setToken(returnToken);
-		Intent intent = reminderActivity.getIntent();
-		intent.putExtra("message", "Response - connected");
-		reminderActivity.setResult(Activity.RESULT_OK, intent);
-		reminderActivity.finish();
-		reminderActivity.onBackPressed();
-	}
 
-	@Override
 	public void connectionFailed() {
 		((NoteAndReminderApplication) reminderActivity.getApplication()).setToken(null);
 		Intent intent = reminderActivity.getIntent();
@@ -108,15 +97,6 @@ public class ReminderPresenter implements GenericConnector{
 		reminderActivity.setResult(Activity.RESULT_CANCELED, intent);
 		reminderActivity.finish();
 		reminderActivity.onBackPressed();
-	}
-
-	@Override
-	public void connectionFinished() {
-		((NoteAndReminderApplication) reminderActivity.getApplication()).setToken(null);
-		Intent intent = reminderActivity.getIntent();
-		intent.putExtra("message", "Response - disconnected");
-		reminderActivity.setResult(Activity.RESULT_CANCELED, intent);
-		reminderActivity.onResume();
 	}
 
 }

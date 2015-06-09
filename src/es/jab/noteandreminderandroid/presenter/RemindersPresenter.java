@@ -18,7 +18,6 @@ import com.google.gson.reflect.TypeToken;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.ReminderActivity;
 import es.jab.noteandreminderandroid.activity.RemindersActivity;
-import es.jab.noteandreminderandroid.activity.UserActivity;
 import es.jab.noteandreminderandroid.adapter.ReminderAdapter;
 import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
@@ -94,18 +93,7 @@ public class RemindersPresenter implements GenericConnector{
 			connectionFailed();
 		}
 	}
-	
-	@Override
-	public void connectionEstablished(Token returnToken) {
-		((NoteAndReminderApplication) remindersActivity.getApplication()).setToken(returnToken);
-		Intent intent = remindersActivity.getIntent();
-		intent.putExtra("message", "Response - connected");
-		remindersActivity.setResult(Activity.RESULT_OK, intent);
-		remindersActivity.finish();
-		remindersActivity.onBackPressed();
-	}
 
-	@Override
 	public void connectionFailed() {
 		((NoteAndReminderApplication) remindersActivity.getApplication()).setToken(null);
 		Intent intent = remindersActivity.getIntent();
@@ -113,15 +101,6 @@ public class RemindersPresenter implements GenericConnector{
 		remindersActivity.setResult(Activity.RESULT_CANCELED, intent);
 		remindersActivity.finish();
 		remindersActivity.onBackPressed();
-	}
-
-	@Override
-	public void connectionFinished() {
-		((NoteAndReminderApplication) remindersActivity.getApplication()).setToken(null);
-		Intent intent = remindersActivity.getIntent();
-		intent.putExtra("message", "Response - disconnected");
-		remindersActivity.setResult(Activity.RESULT_CANCELED, intent);
-		remindersActivity.onResume();
 	}
 
 }

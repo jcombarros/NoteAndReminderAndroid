@@ -79,18 +79,7 @@ public class UserPresenter implements GenericConnector{
 		}
 
 	}
-	
-	@Override
-	public void connectionEstablished(Token returnToken) {
-		((NoteAndReminderApplication) userActivity.getApplication()).setToken(returnToken);
-		Intent intent = userActivity.getIntent();
-		intent.putExtra("message", "Response - connected");
-		userActivity.setResult(Activity.RESULT_OK, intent);
-		userActivity.finish();
-		userActivity.onBackPressed();
-	}
 
-	@Override
 	public void connectionFailed() {
 		((NoteAndReminderApplication) userActivity.getApplication()).setToken(null);
 		Intent intent = userActivity.getIntent();
@@ -98,15 +87,6 @@ public class UserPresenter implements GenericConnector{
 		userActivity.setResult(Activity.RESULT_CANCELED, intent);
 		userActivity.finish();
 		userActivity.onBackPressed();
-	}
-
-	@Override
-	public void connectionFinished() {
-		((NoteAndReminderApplication) userActivity.getApplication()).setToken(null);
-		Intent intent = userActivity.getIntent();
-		intent.putExtra("message", "Response - disconnected");
-		userActivity.setResult(Activity.RESULT_CANCELED, intent);
-		userActivity.onResume();
 	}
 
 }

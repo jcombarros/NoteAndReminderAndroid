@@ -123,27 +123,6 @@ public class MenuPresenter implements GenericConnector{
 		}
 	}
 	
-	@Override
-	public void connectionEstablished(Token returnToken) {
-		((NoteAndReminderApplication) menuActivity.getApplication()).setToken(returnToken);
-		Intent intent = menuActivity.getIntent();
-		intent.putExtra("message", "Response - connected");
-		menuActivity.setResult(Activity.RESULT_OK, intent);
-		menuActivity.finish();
-		menuActivity.onBackPressed();
-	}
-
-	@Override
-	public void connectionFailed() {
-		((NoteAndReminderApplication) menuActivity.getApplication()).setToken(null);
-		Intent intent = menuActivity.getIntent();
-		intent.putExtra("message", "Response - failed");
-		menuActivity.setResult(Activity.RESULT_CANCELED, intent);
-		menuActivity.finish();
-		menuActivity.onBackPressed();
-	}
-
-	@Override
 	public void connectionFinished() {
 		((NoteAndReminderApplication) menuActivity.getApplication()).setToken(null);
 		Intent intent = menuActivity.getIntent();
