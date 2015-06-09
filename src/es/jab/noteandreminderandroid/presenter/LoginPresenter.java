@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Toast;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.LoginActivity;
-import es.jab.noteandreminderandroid.activity.MainActivity;
 import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionPost;

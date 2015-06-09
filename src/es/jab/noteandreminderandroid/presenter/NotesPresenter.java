@@ -17,7 +17,6 @@ import android.widget.Toast;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.NoteActivity;
 import es.jab.noteandreminderandroid.activity.NotesActivity;
-import es.jab.noteandreminderandroid.activity.ReminderActivity;
 import es.jab.noteandreminderandroid.adapter.NoteAdapter;
 import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;

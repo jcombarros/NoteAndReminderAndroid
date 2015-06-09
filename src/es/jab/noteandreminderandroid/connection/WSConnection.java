@@ -8,7 +8,6 @@ import org.apache.http.util.EntityUtils;
 
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.GenericConnectionActivity;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;

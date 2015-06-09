@@ -5,7 +5,6 @@ import android.view.View;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.LoginActivity;
 import es.jab.noteandreminderandroid.activity.MainActivity;
-import es.jab.noteandreminderandroid.activity.MenuActivity;
 import es.jab.noteandreminderandroid.activity.NotesActivity;
 import es.jab.noteandreminderandroid.activity.RemindersActivity;
 import es.jab.noteandreminderandroid.model.Token;

@@ -1,6 +1,5 @@
 package es.jab.noteandreminderandroid.activity;
 
-import com.google.gson.Gson;
 import es.jab.noteandreminderandroid.R;
 import es.jab.noteandreminderandroid.presenter.RemindersPresenter;
 import android.os.Bundle;
