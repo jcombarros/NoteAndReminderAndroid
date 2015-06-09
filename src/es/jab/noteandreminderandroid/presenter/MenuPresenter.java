@@ -15,6 +15,7 @@ import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.R;
 import es.jab.noteandreminderandroid.activity.MainActivity;
 import es.jab.noteandreminderandroid.activity.MenuActivity;
+import es.jab.noteandreminderandroid.activity.NoteActivity;
 import es.jab.noteandreminderandroid.activity.UserActivity;
 import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
@@ -26,6 +27,10 @@ public class MenuPresenter implements GenericConnector{
 	private MenuActivity menuActivity;
 	
 	private Gson gson;
+	
+	public MenuActivity getMenuActivity(){
+		return menuActivity;
+	}
 	
 	public MenuPresenter(MenuActivity menuActivity){
 		this.menuActivity = menuActivity;

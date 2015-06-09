@@ -17,6 +17,7 @@ import com.google.gson.JsonSyntaxException;
 import es.jab.noteandreminderandroid.NoteAndReminderApplication;
 import es.jab.noteandreminderandroid.activity.NoteActivity;
 import es.jab.noteandreminderandroid.activity.NotesActivity;
+import es.jab.noteandreminderandroid.activity.RemindersActivity;
 import es.jab.noteandreminderandroid.connection.GenericConnector;
 import es.jab.noteandreminderandroid.connection.WSConnection;
 import es.jab.noteandreminderandroid.connection.WSConnectionGet;
@@ -28,6 +29,10 @@ public class NotePresenter implements GenericConnector{
 	private NoteActivity noteActivity;
 	
 	private Gson gson;
+	
+	public NoteActivity getNoteActivity(){
+		return noteActivity;
+	}
 	
 	public NotePresenter(NoteActivity noteActivity){
 		this.noteActivity = noteActivity;

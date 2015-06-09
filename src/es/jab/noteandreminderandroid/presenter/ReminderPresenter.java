@@ -29,6 +29,10 @@ public class ReminderPresenter implements GenericConnector{
 	
 	private Gson gson;
 	
+	public ReminderActivity getReminderActivity(){
+		return reminderActivity;
+	}
+	
 	public ReminderPresenter(ReminderActivity reminderActivity){
 		this.reminderActivity = reminderActivity;
 		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create(); 
