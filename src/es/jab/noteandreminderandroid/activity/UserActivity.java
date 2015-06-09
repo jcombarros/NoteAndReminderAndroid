@@ -16,6 +16,7 @@ import es.jab.noteandreminderandroid.connection.WSConnectionGet;
 import es.jab.noteandreminderandroid.model.Note;
 import es.jab.noteandreminderandroid.model.Token;
 import es.jab.noteandreminderandroid.model.User;
+import es.jab.noteandreminderandroid.presenter.UserPresenter;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -33,22 +34,36 @@ public class UserActivity extends GenericConnectionActivity {
 
 	public static final String METHOD = "User/";
 	
-	private Gson gson;
+	private UserPresenter userPresenter;
 	
 	private EditText nameEditView;
-	
 	private EditText surnameEditView;
-	
 	private EditText emailEditView;
-	
 	private EditText passwordEditView;
+	
+	public EditText getNameEditView(){
+		return nameEditView;
+	}
+	
+	public EditText getSurnameEditView(){
+		return surnameEditView;
+	}
+	
+	public EditText getEmailEditText(){ 
+		return emailEditView;
+	}
+	
+	public EditText getPasswordEditView(){
+		return passwordEditView;
+	}
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user);
 				
-		gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm").create();
+		userPresenter = new UserPresenter(this);
 		
 		nameEditView = (EditText) findViewById(R.id.NameInputUser);
 		surnameEditView = (EditText) findViewById(R.id.SurnameInputUser);
@@ -61,50 +76,27 @@ public class UserActivity extends GenericConnectionActivity {
 		passwordEditView.setText("");	
 
 		
-		Token connectionToken = ((NoteAndReminderApplication) this.getApplication()).getToken();
-		if(connectionToken != null && connectionToken.getAuth()){
-			openConnection(WSConnection.API_ROUTE, UserActivity.METHOD, 
-					Integer.toString(connectionToken.getUserId()));
-		}
+		userPresenter.onCreate();
 	}
 
 	@Override
 	public void openConnection(String route, String method, String queryString) {
-		new WSConnectionGet(this).execute(route, method, null, queryString);
+		userPresenter.openConnection(route, method, queryString);
 	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {
-		User user = null;
-		if(!error){
-			try {
-				user = gson.fromJson(json, User.class);
-				
-				if(user != null){				
-					Toast.makeText(this, "User retrieved", Toast.LENGTH_SHORT).show();
-					
-					nameEditView.setText(user.getName());
-					
-					surnameEditView.setText(user.getSurname());
-					
-					emailEditView.setText(user.getEmail());
-					
-					passwordEditView.setText(user.getName());
-					passwordEditView.setTypeface(null, Typeface.BOLD);
-					
-					
-				}
-			} catch (JsonSyntaxException e) {
-				Log.e("Json syntax error: ", e.toString());
-				error = true;
-			}
-			
-		}
-		if(error){
-			Toast.makeText(this, "Something wrong has happened, try again", Toast.LENGTH_SHORT).show();
-			connectionFailed();
-		}
-
+		userPresenter.closeConnection(error, json);
+	}
+	
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
 	}
 
 }
