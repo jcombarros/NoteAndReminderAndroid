@@ -53,11 +53,6 @@ public class NotesActivity extends GenericConnectionActivity {
 	}
 
 	@Override
-	public void openConnection(String route, String method, String queryString) {
-		notesPresenter.openConnection(route, method, queryString);
-	}
-
-	@Override
 	public void closeConnection(boolean error, String json) {
 		notesPresenter.closeConnection(error, json);
 	}

@@ -52,11 +52,6 @@ public class LoginActivity extends GenericConnectionActivity{
 	}
 
 	@Override
-	public void openConnection(String route, String method, String queryString) {
-		loginPresenter.openConnection(route, method, queryString);
-	}
-
-	@Override
 	public void closeConnection(boolean error, String json) {
 		loginPresenter.closeConnection(error, json);
 	}

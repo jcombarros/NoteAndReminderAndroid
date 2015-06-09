@@ -31,11 +31,6 @@ public class RemindersActivity extends GenericConnectionActivity {
 		listView = (ListView) findViewById(R.id.ListReminders);
 		remindersPresenter.onCreate();
 	}
-	
-	@Override
-	public void openConnection(String route, String method, String queryString) {
-		remindersPresenter.openConnection(route, method, queryString);
-	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {

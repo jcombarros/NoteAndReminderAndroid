@@ -33,12 +33,6 @@ public abstract class MenuActivity extends GenericConnectionActivity {
     	menuPresenter.onOptionsItemSelected(item);
         return super.onOptionsItemSelected(item);
     }
-    
-    
-	@Override
-	public void openConnection(String route, String method, String queryString) {
-		menuPresenter.openConnection(route, method, queryString);
-	}
 
 	@Override
 	public void closeConnection(boolean error, String json) {

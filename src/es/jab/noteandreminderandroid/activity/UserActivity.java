@@ -80,11 +80,6 @@ public class UserActivity extends GenericConnectionActivity {
 	}
 
 	@Override
-	public void openConnection(String route, String method, String queryString) {
-		userPresenter.openConnection(route, method, queryString);
-	}
-
-	@Override
 	public void closeConnection(boolean error, String json) {
 		userPresenter.closeConnection(error, json);
 	}

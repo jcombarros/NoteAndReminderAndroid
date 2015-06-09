@@ -79,11 +79,6 @@ public class ReminderActivity extends GenericConnectionActivity {
 	}
 
 	@Override
-	public void openConnection(String route, String method, String queryString) {
-		reminderPresenter.openConnection(route, method, queryString);
-	}
-
-	@Override
 	public void closeConnection(boolean error, String json) {
 		reminderPresenter.closeConnection(error, json);
 	}
